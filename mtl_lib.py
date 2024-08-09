@@ -18,7 +18,9 @@ class MtlConfigs:
     num_task_experts: int = 1
     num_shared_experts: int = 1
     expert_out_dims: List[List[int]] = field(default_factory=list)
-    self_exp_res_connect: bool = False
+    # self_exp_res_connect is crucial for model performance and is designed for
+    # ablation studies. Ensure that it is always set to True for best results!
+    self_exp_res_connect: bool = True
     expert_archs: Optional[List[List[int]]] = None
     gate_archs: Optional[List[List[int]]] = None
     num_experts: Optional[int] = None
